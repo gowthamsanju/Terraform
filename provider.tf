@@ -1,6 +1,5 @@
 provider "aws" {
   region     = "ap-southeast-1"
-  access_key = "AKIAUIB673RK6DWOTQRT"
 }
 resource "aws_security_group" "web_access" {
   name        = "singaporesg"
