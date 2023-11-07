@@ -1,10 +1,8 @@
 provider "aws" {
-  region     = "us-east-1"
-  access_key = "AKIAUWA6ID2FSXRUITGZ"
-  secret_key = "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"
+  region     = "ap-southeast-1"
 }
-resource "aws_security_group" "web_access01" {
-  name        = "web_access01"
+resource "aws_security_group" "web_access" {
+  name        = "singaporesg"
   description = "allow ssh and http"
 
   ingress {
@@ -35,9 +33,9 @@ resource "aws_security_group" "web_access01" {
 resource "aws_instance" "web-server" {
   ami             = "ami-05c13eab67c5d8861"
   instance_type   = "t2.micro"
-  security_groups = ["${aws_security_group.web_access01.name}"]
+  security_groups = ["${aws_security_group.web_access.name}"]
   tags = {
-    Name     = "hello-World"
+    Name     = "test-server"
     Stage    = "testing"
     Location = "INDIA"
   }
