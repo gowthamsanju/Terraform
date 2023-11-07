@@ -1,5 +1,6 @@
 provider "aws" {
   region     = "ap-southeast-1"
+  access_key = "AKIAUIB673RK6DWOTQRT"
 }
 resource "aws_security_group" "web_access" {
   name        = "singaporesg"
@@ -31,7 +32,7 @@ resource "aws_security_group" "web_access" {
 
 
 resource "aws_instance" "web-server" {
-  ami             = "ami-05c13eab67c5d8861"
+  ami             = "ami-05caa5aa0186b660f"
   instance_type   = "t2.micro"
   security_groups = ["${aws_security_group.web_access.name}"]
   tags = {
